@@ -1,1 +1,21 @@
-theme: jekyll-theme-cayman
+# 🛒 Walmart Capstone Project Theme Configuration
+theme: jekyll-theme-midnight
+
+# Repository Parameters
+title: "🛒 Walmart Weekly Sales Analysis & Forecasting"
+description: "Data Science Capstone Project - Analytical Framework for Demand Planning, Inventory Management, and ARIMA Forecasting."
+
+# Corporate Branding Parameters
+theme_colors:
+  primary: "#0071CE"        # Walmart Blue (Everyday Low Price Blue)
+  accent: "#FFC220"         # Walmart Spark Yellow
+  dark_blue: "#041F41"      # Deep Navy (Headers/Footers)
+  background: "#FFFFFF"     # White
+  text: "#464646"           # Dark Gray for readability
+
+branding_assets:
+  alt_text: "Walmart Logo and Spark"
+  official_guidelines: "https://walmartbrandcenter.com"
+
+# Layout Controls
+show_downloads: false
