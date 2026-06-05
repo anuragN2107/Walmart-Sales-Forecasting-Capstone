@@ -1,26 +1,10 @@
 ---
-title: Walmart Sales Forecaster
-emoji: 🏬
-colorFrom: blue
-colorTo: green
-sdk: gradio
-sdk_version: 4.36.1
-app_file: app.py
-pinned: true
-license: mit
-short_description: ARIMA-powered demand forecasting pipeline for multi-outlet retail inventory optimization.
----
 
 # 🏬 Walmart Weekly Sales Analytics & Demand Forecasting Pipeline
 
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg?style=flat-square&logo=python)](https://www.python.org/)
 [![Gradio UI](https://img.shields.io/badge/UI-Gradio-orange.svg?style=flat-square)](https://gradio.app/)
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97-Spaces-yellow.svg?style=flat-square)](https://huggingface.co/spaces)
-[![Academic Project](https://img.shields.io/badge/IIT%20Roorkee-Capstone-red.svg?style=flat-square)](https://ihub-divyasampark.iitr.ac.in/)
-
-> **Executive PG Certification in Data Science and AI**
-> *In partnership with iHub Divyasampark (IIT Roorkee) & Intellipaat*
-> **Engineered by:** Anurag Srivastva
 
 ---
 
