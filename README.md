@@ -1,43 +1,76 @@
-# 🛒 Walmart Weekly Sales Analysis & Forecasting 📈
+---
+title: Walmart Sales Forecaster
+emoji: 🏬
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: 4.36.1
+app_file: app.py
+pinned: true
+license: mit
+short_description: ARIMA-powered demand forecasting pipeline for multi-outlet retail inventory optimization.
+---
 
-![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
-![Google Colab](https://img.shields.io/badge/Google%20Colab-Focused-orange?style=for-the-badge&logo=googlecolab)
-![Data Science](https://img.shields.io/badge/Domain-Data%20Science-green?style=for-the-badge&logo=datascience)
+# 🏬 Walmart Weekly Sales Analytics & Demand Forecasting Pipeline
 
-> **Executive PG Certification in Data Science and AI** > *Associated with iHub Divyasampark, IIT Roorkee & Intellipaat* > **Prepared by:** Anurag Srivastva
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg?style=flat-square&logo=python)](https://www.python.org/)
+[![Gradio UI](https://img.shields.io/badge/UI-Gradio-orange.svg?style=flat-square)](https://gradio.app/)
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97-Spaces-yellow.svg?style=flat-square)](https://huggingface.co/spaces)
+[![Academic Project](https://img.shields.io/badge/IIT%20Roorkee-Capstone-red.svg?style=flat-square)](https://ihub-divyasampark.iitr.ac.in/)
+
+> **Executive PG Certification in Data Science and AI**
+> *In partnership with iHub Divyasampark (IIT Roorkee) & Intellipaat*
+> **Engineered by:** Anurag Srivastva
 
 ---
 
-## 📌 Problem Statement
-A retail store with multiple outlets countrywide faces major inventory management issues—specifically, matching demand with supply. This project analyzes historical weekly sales data to uncover key economic/environmental drivers and forecasts sales for the next 12 weeks.
+## 📌 Problem Statement & Supply Chain Context
+Retail operations across sprawling nationwide networks face a systemic structural problem: **Inventory Misalignment**. Misjudging regional consumer demand results in severe capital bleeding—either via expensive warehouse holding costs for overstocked goods or direct margin loss from understocked shelf stockouts during high-velocity holiday spikes.
 
-## 📊 Key Insights from EDA
+**The Objective:** Build an end-to-end operational pipeline that analyzes regional macroeconomic/environmental variables from Walmart store logs and uses a mathematical **ARIMA (AutoRegressive Integrated Moving Average)** engine to project a rolling 12-week forward demand curve. This enables regional logistics managers to allocate inventory dynamically.
 
-| Factor | Business Impact & Observations |
+---
+
+## 📊 Exploratory Data Analysis (EDA) Insights
+
+| Environmental Factor | Correlation & Strategic Business Impact |
 | :--- | :--- |
-| **Unemployment** | High negative impact on **Store 38** and **Store 44** ($\approx -0.78$). As unemployment rises, sales drop drastically. |
-| **Seasonality** | Strong winter spikes driven by holiday seasons and festive shopping. |
-| **Temperature** | Sales peak at moderate-to-high temperatures (51–75°F) but decline sharply during extreme weather. |
-| **Inflation (CPI)** | High inflation drastically reduces consumer purchasing power, triggering sales drops. |
+| **📉 Unemployment Rate** | High negative correlation ($\approx -0.78$) specifically targeting **Store 38** and **Store 44**. Shifts in regional employment directly destroy baseline purchasing power, signaling immediate stock reduction rules. |
+| **❄️ Seasonal Velocity** | Strong winter demand anomalies across Q4. Q4 seasonal spikes are heavily driven by Thanksgiving and Christmas operational volumes. |
+| **🌡️ Temperature Caps** | Consumption efficiency forms a bell curve; velocity clusters strongly within temperate zones (51–75°F) but trails off sharply during extreme climate anomalies. |
+| **💸 Inflation (CPI)** | Shifting Consumer Price Indexes pressure the baseline consumer wallet, decreasing overall basket volume sizes. |
 
-### 🏆 Store Performance Highlights
-* **Top Performer:** Store 20 ($\approx$ $301M total sales)
-* **Worst Performer:** Store 33 ($\approx$ $37M total sales)
-* **The Gap:** A massive **$264M difference** between the best and worst outlets!
-
----
-
-## 🤖 Predictive Modeling (ARIMA)
-We utilized the **ARIMA (AutoRegressive Integrated Moving Average)** model to handle univariate time-series forecasting. 
-* **Stationarity:** Verified via the **ADF (Augmented Dickey-Fuller) Test**.
-* **Parameters ($p, d, q$):** Identified using **ACF and PACF** plots.
-* **Horizon:** Generates robust, short-term **12-week sales forecasts** for data-driven demand planning.
+### 🏆 Operational Store Extremes
+* **Top Performance Engine:** Store 20 ($\approx$ **$301M** cumulative sales volume)
+* **Underperforming Asset:** Store 33 ($\approx$ **$37M** cumulative sales volume)
+* **The Variance Gap:** A massive **$264M divergence** in historical distribution performance across network nodes, showing why store-level isolated forecasting is necessary over blanket corporate averages.
 
 ---
 
-## 🛠️ Tech Stack & Tools
-* **Language:** Python
-* **Environment:** Google Colab
-* **Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Statsmodels (ARIMA)
+## 🤖 Predictive Modeling Framework (ARIMA)
 
-🔗 **[Click Here to View the Interactive Google Colab Notebook](https://colab.research.google.com/drive/17Ltg7ohU1hdYki6N7ktQug3BgnYfi92B?usp=sharing))**
+Univariate time-series demands rely on strict mathematical properties to generate robust inferences:
+
+1. **Stationarity Transformation:** Evaluated using the **Augmented Dickey-Fuller (ADF) Test** to mathematically verify whether structural variances or means drift over time.
+2. **Order Identification ($p, d, q$):** Autoregressive ($p$), Integrated ($d$), and Moving Average ($q$) parameter sets are determined by mapping correlation boundaries via Autocorrelation (**ACF**) and Partial Autocorrelation (**PACF**) decay plots.
+3. **Inference Horizon:** Configured to push a rolling **12-week out-of-sample forward horizon**, providing supply chain infrastructure with a 3-month predictive cushion.
+
+---
+
+## 🛠️ System Architecture & Tech Stack
+* **Core Modeling Mathematics:** `statsmodels.tsa.arima.model.ARIMA` (Statistical modeling and parameter selection)
+* **Data Pipelines:** `pandas`, `numpy` (Time-series aggregations, resampling, and chronological indexing)
+* **Dynamic Visualization Engine:** `matplotlib`, `seaborn` (Real-time generation of forecast vs. historical charts saved directly to memory buffers)
+* **Microservices Application UI:** `Gradio` (Front-end form input rendering and state management)
+* **MLOps Cloud Platform:** `Hugging Face Spaces` (Isolated Docker-like Linux container hosting)
+
+---
+
+## 🚀 Strategic Future Improvements
+* **Exogenous Regression (ARIMAX):** Directly embedding the feature arrays for markdowns, promotions, temperature shocks, and macroeconomic indicators into the forecasting matrix to capture sudden shifts in demand.
+* **Deep Neural Sequencers:** Evaluating deep learning time-series architectures—such as **Long Short-Term Memory (LSTM)** networks or **Prophet**—to handle non-linear seasonal interactions during extended promotional periods.
+
+---
+🔗 **Reference Links:**
+* **Active Production Application Dashboard:** [Hugging Face Space Live UI Webpage](https://huggingface.co/spaces/anuragN2107/walmart-sales-forecaster)
+* **Core Interactive Computation Code:** [Google Colab Research Workspace](https://colab.research.google.com/drive/17Ltg7ohU1hdYki6N7ktQug3BgnYfi92B?usp=sharing)
